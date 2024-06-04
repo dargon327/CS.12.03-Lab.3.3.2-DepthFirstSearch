@@ -44,7 +44,33 @@ public class DepthFirstSearch {
     }
 
     public static int[] depthFirstSearch(int[][] graph) {
+        Stack<Integer> stack = new Stack();
+        // Create an array that will record whether we have visited each node.
+        boolean[] visited = new boolean[graph.length+1];
+        // Push the starting node onto the stack.
+        stack.push(0);
+        int[] path = new int[graph.length];
+        int p = 0;
+        // While our stack is not empty ...
+        int s;
+        while (!stack.empty()) {
+            s = stack.peek();
+            stack.pop();
+            if (!visited[s]) {
+                visited[s] = true;
+                path[p] = s;
+                p++;
+            }
+            for (int i = 0; i < graph[s].length;i++) {
+                int v = graph[s][i];
+                if (!visited[i]) {
+                    stack.push(v);
 
+                }
+            }
+
+
+        }
         // Create a stack.
 
         // Create an array called visited. This will keep track of which nodes we have visited.
@@ -77,7 +103,7 @@ public class DepthFirstSearch {
 
 
         // Return the path.
-        return null;
+        return path;
 
     }
 
