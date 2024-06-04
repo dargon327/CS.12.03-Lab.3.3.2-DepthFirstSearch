@@ -54,8 +54,7 @@ public class DepthFirstSearch {
         // While our stack is not empty ...
         int s;
         while (!stack.empty()) {
-            s = stack.peek();
-            stack.pop();
+            s = stack.pop();
             if (!visited[s]) {
                 visited[s] = true;
                 path[p] = s;
@@ -63,7 +62,7 @@ public class DepthFirstSearch {
             }
             for (int i = 0; i < graph[s].length;i++) {
                 int v = graph[s][i];
-                if (!visited[i]) {
+                if (!visited[v]) {
                     stack.push(v);
 
                 }
